@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Mundo de Blockchain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; 
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-block {
+            border: 2px solid #3E8DFF;
+            background-color: #D6E8FF;
+            color: #00449E;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+            min-width: 150px;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            color: #0867D4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        .network-node {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3E8DFF;
+            border: 2px solid #00449E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .network-node-center {
+            width: 60px;
+            height: 60px;
+            background-color: #00449E;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 
+      Plan de Narrativa:
+      1. Hero: Definición clave (Libro Mayor Digital).
+      2. Arquitectura: Visualizar Bloque -> Hash -> Cadena con HTML/CSS.
+      3. Pilares de Confianza: Diagrama de Descentralización y tabla de Consenso (PoW vs PoS).
+      4. Evolución: Tarjetas para Smart Contracts y DApps.
+      5. Casos de Uso: Gráfico de Donut (Chart.js) y tarjetas para Suministro, Finanzas, Identidad.
+      6. Conclusión: Declaración final ("Infraestructura de confianza").
+      
+      Paleta de Colores Seleccionada: Brilliant Blues (#00449E, #0867D4, #3E8DFF, #8DC1FF, #D6E8FF)
+    -->
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-[#00449E]">BLOCKCHAIN</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#que-es" class="text-gray-600 hover:text-[#0867D4] px-3 py-2 rounded-md text-sm font-medium">Qué es</a>
+                        <a href="#como-funciona" class="text-gray-600 hover:text-[#0867D4] px-3 py-2 rounded-md text-sm font-medium">Cómo Funciona</a>
+                        <a href="#pilares" class="text-gray-600 hover:text-[#0867D4] px-3 py-2 rounded-md text-sm font-medium">Pilares</a>
+                        <a href="#evolucion" class="text-gray-600 hover:text-[#0867D4] px-3 py-2 rounded-md text-sm font-medium">Evolución</a>
+                        <a href="#casos-de-uso" class="text-gray-600 hover:text-[#0867D4] px-3 py-2 rounded-md text-sm font-medium">Casos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección 1: Qué es (Hero) -->
+    <section id="que-es" class="bg-gradient-to-r from-[#00449E] to-[#0867D4] text-white py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">La Revolución de la Confianza</h1>
+            <p class="text-2xl md:text-3xl font-light mb-8 max-w-3xl mx-auto">Blockchain es un <span class="font-semibold text-[#8DC1FF]">Libro Mayor Digital Inmutable y Descentralizado</span>.</p>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">
+                Su promesa es simple: crear un sistema donde la confianza no se deposita en una persona o empresa, sino en la propia tecnología.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección 2: Cómo Funciona (Arquitectura) -->
+    <section id="como-funciona" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00449E] mb-4">¿Cómo Funciona?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Se basa en tres conceptos simples: el Bloque, el Hash y la Cadena. Este es un flujo de cómo se crea la inmutabilidad.</p>
+                <!-- 
+                  Selección de Visualización:
+                  Data: Proceso de Bloque -> Hash -> Cadena.
+                  Goal: Organizar (Proceso).
+                  Choice: Diagrama de Flujo (Implementado con HTML/CSS/Tailwind).
+                  Justification: La guía prohíbe Mermaid JS y SVG. HTML/CSS es el método requerido para diagramas de flujo.
+                -->
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <!-- Bloque -->
+                <div class="flow-block">
+                    <h3 class="text-xl font-bold mb-2">1. El Bloque</h3>
+                    <p class="text-sm">Un paquete de datos que contiene:</p>
+                    <ul class="text-left text-sm list-disc list-inside mt-2">
+                        <li>Transacciones</li>
+                        <li>Sello de Tiempo</li>
+                        <li>Hash Anterior</li>
+                    </ul>
+                </div>
+
+                <div class="flow-arrow transform rotate-90 md:rotate-0">➔</div>
+
+                <!-- Hash -->
+                <div class="flow-block">
+                    <h3 class="text-xl font-bold mb-2">2. El Hash</h3>
+                    <p class="text-sm">Una "huella digital" criptográfica (SHA-256) única del bloque. Si algo en el bloque cambia, el Hash cambia por completo.</p>
+                </div>
+                
+                <div class="flow-arrow transform rotate-90 md:rotate-0">➔</div>
+
+                <!-- Cadena -->
+                <div class="flow-block">
+                    <h3 class="text-xl font-bold mb-2">3. La Cadena</h3>
+                    <p class="text-sm">Cada nuevo bloque guarda el Hash del bloque anterior, creando un enlace matemático. Alterar un bloque antiguo rompería toda la cadena.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Pilares de Confianza -->
+    <section id="pilares" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00449E] mb-4">Los Pilares de la Confianza</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">La seguridad de Blockchain no depende de un candado, sino de dos conceptos clave: Descentralización y Consenso.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                
+                <!-- Pilar 1: Descentralización -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#0867D4] mb-4 text-center">Descentralización (DLT)</h3>
+                    <p class="text-gray-700 mb-6 text-center">El "Libro Mayor" no está en un solo lugar; existen miles de copias idénticas (Nodos). Si un nodo falla, la red continúa.</p>
+                    
+                    <!-- 
+                      Selección de Visualización:
+                      Data: Comparación Centralizado vs. Descentralizado.
+                      Goal: Comparar.
+                      Choice: Diagrama (Implementado con HTML/CSS/Tailwind).
+                      Justification: Un diagrama simple de nodos es la forma más clara de mostrar esta diferencia estructural sin SVG.
+                    -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <h4 class="font-semibold mb-2">Sistema Centralizado</h4>
+                            <div class="relative w-40 h-40 mx-auto flex items-center justify-center">
+                                <div class="network-node network-node-center"></div>
+                                <div class="network-node absolute top-0 left-1/2 -translate-x-1/2 -mt-5"></div>
+                                <div class="network-node absolute bottom-0 left-1/2 -translate-x-1/2 -mb-5"></div>
+                                <div class="network-node absolute left-0 top-1/2 -translate-y-1/2 -ml-5"></div>
+                                <div class="network-node absolute right-0 top-1/2 -translate-y-1/2 -mr-5"></div>
+                            </div>
+                            <p class="text-sm text-red-600 mt-2">Punto único de falla.</p>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="font-semibold mb-2">Sistema Descentralizado</h4>
+                            <div class="relative w-40 h-40 mx-auto flex items-center justify-center">
+                                <div class="network-node absolute top-0 left-1/2 -translate-x-1/2 -mt-5"></div>
+                                <div class="network-node absolute bottom-0 left-1/2 -translate-x-1/2 -mb-5"></div>
+                                <div class="network-node absolute left-0 top-1/2 -translate-y-1/2 -ml-5"></div>
+                                <div class="network-node absolute right-0 top-1/2 -translate-y-1/2 -mr-5"></div>
+                                <div class="network-node absolute top-1/4 left-1/4"></div>
+                                <div class="network-node absolute bottom-1/4 right-1/4"></div>
+                            </div>
+                            <p class="text-sm text-green-600 mt-2">Resiliente y sin control único.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pilar 2: Consenso -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#0867D4] mb-4 text-center">Mecanismos de Consenso</h3>
+                    <p class="text-gray-700 mb-6 text-center">Si no hay jefe, ¿quién aprueba las transacciones? El "Consenso" es la regla que la red usa para validar nuevos bloques.</p>
+
+                    <!-- 
+                      Selección de Visualización:
+                      Data: Comparación PoW vs. PoS.
+                      Goal: Comparar.
+                      Choice: Tabla HTML.
+                      Justification: Una tabla es ideal para una comparación directa de atributos (Método, Energía, Ejemplo) según la guía.
+                    -->
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-[#D6E8FF] text-[#00449E]">
+                                <th class="p-3 font-bold text-left">Característica</th>
+                                <th class="p-3 font-bold text-left">Proof of Work (PoW)</th>
+                                <th class="p-3 font-bold text-left">Proof of Stake (PoS)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-3 font-semibold">Método</td>
+                                <td class="p-3">Mineros compiten resolviendo problemas matemáticos.</td>
+                                <td class="p-3">Validadores seleccionados aleatoriamente (basado en 'stake').</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3 font-semibold">Energía</td>
+                                <td class="p-3 text-red-600">Muy Alto Consumo</td>
+                                <td class="p-3 text-green-600">Bajo Consumo (Eficiente)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold">Ejemplo</td>
+                                <td class="p-3">Bitcoin</td>
+                                <td class="p-3">Ethereum</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Evolución -->
+    <section id="evolucion" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00449E] mb-4">La Evolución: Más que Dinero</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">La tecnología evolucionó para ejecutar lógica de negocios, no solo almacenar valor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 
+                  Selección de Visualización:
+                  Data: Definiciones de Smart Contracts y DApps.
+                  Goal: Informar.
+                  Choice: Tarjetas de Iconos (HTML/CSS + Unicode).
+                  Justification: La guía sugiere pictografías (Unicode) o texto grande. Las tarjetas combinan esto para una fácil digestión.
+                -->
+                <!-- Smart Contracts -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
+                    <div class="p-8 bg-[#3E8DFF] text-white text-center">
+                        <span class="text-6xl">📜</span>
+                        <h3 class="text-3xl font-bold mt-4">Contratos Inteligentes</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-lg text-gray-700">Son <span class="font-bold text-[#00449E]">código que ejecuta acuerdos</span> automáticamente. Eliminan la necesidad de intermediarios (abogados, notarios) al ejecutar la lógica ("Si A paga, B recibe el bien") de forma imparable en la Blockchain.</p>
+                    </div>
+                </div>
+                
+                <!-- DApps -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
+                    <div class="p-8 bg-[#3E8DFF] text-white text-center">
+                        <span class="text-6xl">📱</span>
+                        <h3 class="text-3xl font-bold mt-4">DApps (Aplicaciones Descentralizadas)</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-lg text-gray-700">Son aplicaciones (como las que usas hoy) pero que <span class="font-bold text-[#00449E]">funcionan sobre una red Blockchain</span>, no en un servidor central. No pueden ser censuradas y operan con Smart Contracts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Casos de Uso -->
+    <section id="casos-de-uso" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#00449E] mb-4">Impacto en el Mundo Real</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Blockchain no es una teoría; ya está transformando industrias clave.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <!-- 
+                  Selección de Visualización:
+                  Data: Áreas de Aplicación (Finanzas, Suministro, Identidad).
+                  Goal: Informar / Comparar (Composición).
+                  Choice: Gráfico de Donut (Chart.js / Canvas).
+                  Justification: Un gráfico de Donut es ideal para mostrar la composición de los casos de uso (datos ilustrativos). Cumple con la guía y usa Canvas (NO SVG).
+                -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#0867D4] mb-4 text-center">Áreas de Aplicación (Ilustrativo)</h3>
+                    <div class="chart-container">
+                        <canvas id="useCasesChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-600 text-center mt-4">Visualización ilustrativa de dónde se concentra el desarrollo de la tecnología Blockchain.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Caso 1 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4">
+                        <div class="flex-shrink-0 text-3xl">📦</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-[#0867D4]">Cadenas de Suministro</h4>
+                            <p class="text-gray-700">Permite la <span class="font-semibold">trazabilidad total</span>. Empresas como Walmart rastrean alimentos desde la granja al estante en segundos, garantizando seguridad y autenticidad.</p>
+                        </div>
+                    </div>
+                    <!-- Caso 2 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4">
+                        <div class="flex-shrink-0 text-3xl">💳</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-[#0867D4]">Finanzas (DeFi)</h4>
+                            <p class="text-gray-700">Préstamos, seguros y ahorros <span class="font-semibold">sin la intervención de bancos</span>. Permite pagos transfronterizos casi instantáneos y con bajas comisiones.</p>
+                        </div>
+                    </div>
+                    <!-- Caso 3 -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4">
+                        <div class="flex-shrink-0 text-3xl">🆔</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-[#0867D4]">Identidad Digital</h4>
+                            <p class="text-gray-700">Permite credenciales (títulos, pasaportes, historial médico) <span class="font-semibold">controladas por el usuario</span> y verificables por cualquiera, sin depender de un gobierno.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Conclusión -->
+    <footer class="bg-[#00449E] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Una Infraestructura de Confianza</h2>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">Blockchain es más que una tecnología; es una nueva forma de crear registros irrefutables y acuerdos auto-ejecutables para el futuro.</p>
+        </div>
+    </footer>
+
+    <!-- 
+      Confirmación explícita (como se solicita en las instrucciones):
+      NI Mermaid JS NI SVG fueron utilizados en la generación de este documento.
+      Todos los gráficos son renderizados vía Canvas (Chart.js) o construidos con HTML/CSS (Diagramas de Flujo y Redes).
+    -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            function processLabel(label) {
+                const maxChars = 16;
+                if (typeof label !== 'string' || label.length <= maxChars) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxChars) {
+                        lines.push(currentLine.trim());
+                        currentLine = word + ' ';
+                    } else {
+                        currentLine += word + ' ';
+                    }
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            const chartLabels = ['Finanzas (DeFi)', 'Cadenas de Suministro', 'Identidad Digital', 'Otros Sectores'].map(processLabel);
+
+            const useCasesCtx = document.getElementById('useCasesChart').getContext('2d');
+            new Chart(useCasesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Casos de Uso',
+                        data: [40, 30, 15, 15],
+                        backgroundColor: [
+                            '#00449E',
+                            '#0867D4',
+                            '#3E8DFF',
+                            '#8DC1FF'
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#333'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    } else {
+                                      return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
